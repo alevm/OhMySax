@@ -1,5 +1,5 @@
 /* ============================================
-   OhMySax — Vintage Saxophone Repair Shop
+   OhMySax — Learning to Fix What I Love
    Color palette: warm golds, aged brass, cream
    ============================================ */
 
@@ -35,7 +35,7 @@ body {
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -56,7 +56,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1100px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0.8rem 2rem;
 }
@@ -101,7 +101,7 @@ body {
 
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,42 +151,20 @@ body {
 }
 
 .subtitle {
-  color: var(--text-light);
   font-size: 1rem;
   margin-bottom: 2rem;
   color: rgba(245, 230, 200, 0.6);
 }
 
-/* ---- Buttons ---- */
-
-.btn {
-  display: inline-block;
-  padding: 0.85rem 2.2rem;
-  background: var(--gold);
-  color: var(--white);
-  text-decoration: none;
-  font-family: 'Lora', Georgia, serif;
-  font-size: 1rem;
-  border: 2px solid var(--gold);
-  cursor: pointer;
-  letter-spacing: 1px;
-  transition: all 0.3s;
-}
-
-.btn:hover {
-  background: transparent;
-  color: var(--gold-light);
-}
-
 /* ---- Sections ---- */
 
 .section {
-  padding: 5rem 0;
+  padding: 4rem 0;
 }
 
 .section h2 {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 2.4rem;
+  font-size: 2rem;
   text-align: center;
   color: var(--dark);
   margin-bottom: 0.5rem;
@@ -199,198 +177,114 @@ body {
   margin: 0 auto 2.5rem;
 }
 
-.section-intro {
+/* ---- Prose ---- */
+
+.prose {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+
+.prose p {
+  margin-bottom: 1.2rem;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Intro ---- */
+
+.intro {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.intro .prose {
+  font-size: 1.15rem;
   text-align: center;
-  max-width: 600px;
-  margin: 0 auto 3rem;
+}
+
+/* ---- Story (horn entries) ---- */
+
+.story {
+  background: var(--parchment);
+}
+
+.horn-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.horn-entry {
+  margin-bottom: 2.5rem;
+}
+
+.horn-entry h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  color: var(--dark);
+  margin-bottom: 0.6rem;
+}
+
+.horn-entry p {
+  font-size: 1.05rem;
+}
+
+.more-coming {
+  text-align: center;
   color: var(--text-light);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+/* ---- Skills grid ---- */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-card {
+  background: var(--white);
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(184, 134, 11, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--shadow);
+}
+
+.skill-card h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+.skill-card p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+/* ---- Why Vintage ---- */
+
+.why-vintage {
+  background: var(--parchment);
+}
+
+.why-vintage .prose p:last-child {
+  font-weight: 600;
+  color: var(--dark);
 }
 
 /* ---- About ---- */
 
-.about p {
-  max-width: 700px;
-  margin: 0 auto;
+.about .prose {
   text-align: center;
-  font-size: 1.1rem;
-}
-
-/* ---- Services ---- */
-
-.services {
-  background: var(--parchment);
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-}
-
-.service-card {
-  background: var(--white);
-  padding: 2.5rem 2rem;
-  text-align: center;
-  border: 1px solid rgba(184, 134, 11, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px var(--shadow);
-}
-
-.service-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--gold);
-}
-
-.service-card h3 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
-  color: var(--dark);
-}
-
-.service-card p {
-  font-size: 0.95rem;
-  color: var(--text-light);
-}
-
-/* ---- Saxophones ---- */
-
-.sax-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.sax-card {
-  background: var(--white);
-  border: 1px solid rgba(184, 134, 11, 0.2);
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.sax-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px var(--shadow);
-}
-
-.sax-img-placeholder {
-  height: 220px;
-  background: linear-gradient(135deg, var(--parchment), #e8d5b0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-light);
-  font-style: italic;
-  font-size: 0.95rem;
-}
-
-.sax-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.sax-info {
-  padding: 1.5rem;
-}
-
-.sax-info h3 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.2rem;
-  color: var(--dark);
-  margin-bottom: 0.4rem;
-}
-
-.sax-detail {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  margin-bottom: 0.3rem;
-}
-
-.sax-price {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--gold);
-  margin-top: 0.8rem;
-}
-
-.sax-status {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.2rem 0.8rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.sax-status.available {
-  background: #e8f5e9;
-  color: #2e7d32;
-}
-
-.sax-status.sold {
-  background: #fce4ec;
-  color: #c62828;
-}
-
-.sax-status.in-repair {
-  background: #fff3e0;
-  color: #e65100;
-}
-
-/* ---- Contact ---- */
-
-.contact {
-  background: var(--parchment);
-}
-
-.contact > .container > p {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: var(--text-light);
-}
-
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.form-row {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.form-row input {
-  flex: 1;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.9rem 1rem;
-  border: 1px solid rgba(184, 134, 11, 0.3);
-  background: var(--white);
-  font-family: 'Lora', Georgia, serif;
-  font-size: 0.95rem;
-  color: var(--text);
-  margin-bottom: 1rem;
-  transition: border-color 0.3s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: var(--gold);
-}
-
-.contact-form .btn {
-  width: 100%;
 }
 
 /* ---- Footer ---- */
@@ -436,12 +330,17 @@ body {
     display: block;
   }
 
-  .form-row {
-    flex-direction: column;
-    gap: 0;
+  .section {
+    padding: 3rem 0;
   }
 
-  .section {
-    padding: 3.5rem 0;
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 }
