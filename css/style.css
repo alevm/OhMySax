@@ -1,20 +1,19 @@
 /* ============================================
-   OhMySax — Learning to Fix What I Love
-   Color palette: warm golds, aged brass, cream
+   OhMySax — workshop log
+   Palette: ink on cool paper, verde patina accent
    ============================================ */
 
 :root {
-  --gold: #b8860b;
-  --gold-light: #d4a843;
-  --brass: #8b6914;
-  --cream: #fdf6e3;
-  --parchment: #f5e6c8;
-  --dark: #2c1e0f;
-  --dark-soft: #3d2b1a;
-  --text: #4a3728;
-  --text-light: #7a6555;
-  --white: #fffef9;
-  --shadow: rgba(44, 30, 15, 0.15);
+  --paper: #ece8dd;
+  --paper-soft: #f2eee3;
+  --ink: #1c1c1c;
+  --ink-soft: #3a3a3a;
+  --ink-mute: #6b6b6b;
+  --rule: #b8b2a2;
+  --patina: #3d5a4a;
+  --patina-soft: #5a7a68;
+  --flag: #8a3a2a;
+  --shadow: rgba(28, 28, 28, 0.08);
 }
 
 * {
@@ -28,165 +27,157 @@ html {
 }
 
 body {
-  font-family: 'Lora', Georgia, serif;
-  color: var(--text);
-  background: var(--cream);
-  line-height: 1.7;
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
 
 /* ---- Navigation ---- */
 
 .site-header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 100;
-  background: var(--dark);
-  border-bottom: 2px solid var(--gold);
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
 }
 
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 800px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 0.8rem 2rem;
+  padding: 0.8rem 1.5rem;
 }
 
 .logo {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.6rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--gold-light);
+  color: var(--ink);
   text-decoration: none;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 1.4rem;
 }
 
 .nav-links a {
-  color: var(--parchment);
+  color: var(--ink-soft);
   text-decoration: none;
-  font-size: 0.95rem;
-  letter-spacing: 0.5px;
-  transition: color 0.3s;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  transition: color 0.2s;
 }
 
 .nav-links a:hover {
-  color: var(--gold-light);
+  color: var(--patina);
 }
 
 .nav-toggle {
   display: none;
   background: none;
   border: none;
-  color: var(--gold-light);
-  font-size: 1.5rem;
+  color: var(--ink);
+  font-size: 1.4rem;
   cursor: pointer;
 }
 
-/* ---- Hero ---- */
+/* ---- Hero / masthead ---- */
 
 .hero {
-  position: relative;
-  min-height: 70vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background:
-    radial-gradient(ellipse at 30% 50%, rgba(184, 134, 11, 0.15) 0%, transparent 60%),
-    linear-gradient(160deg, var(--dark) 0%, var(--dark-soft) 50%, #4a3520 100%);
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(253, 246, 227, 0.02) 2px,
-      rgba(253, 246, 227, 0.02) 4px
-    );
-  pointer-events: none;
+  padding: 4rem 1.5rem 2rem;
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 2rem;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 .hero h1 {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 5rem;
-  color: var(--gold-light);
-  letter-spacing: 3px;
-  margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 0.6rem;
 }
 
 .tagline {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-style: italic;
-  color: var(--parchment);
-  margin-bottom: 0.5rem;
+  color: var(--patina);
+  margin-bottom: 0.3rem;
 }
 
 .subtitle {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  color: rgba(245, 230, 200, 0.6);
+  font-size: 0.9rem;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 /* ---- Sections ---- */
 
 .section {
-  padding: 4rem 0;
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.section:last-of-type {
+  border-bottom: none;
 }
 
 .section h2 {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 2rem;
-  text-align: center;
-  color: var(--dark);
-  margin-bottom: 0.5rem;
+  font-size: 1.7rem;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.5px;
+}
+
+.section .kicker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--patina);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
 }
 
 .divider {
-  width: 60px;
-  height: 3px;
-  background: var(--gold);
-  margin: 0 auto 2.5rem;
+  width: 40px;
+  height: 2px;
+  background: var(--ink);
+  margin: 0 0 2rem;
 }
 
 /* ---- Prose ---- */
 
 .prose {
-  max-width: 700px;
-  margin: 0 auto;
-  font-size: 1.05rem;
+  max-width: 600px;
+  font-size: 1rem;
 }
 
 .prose p {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .prose p:last-child {
@@ -195,185 +186,216 @@ body {
 
 /* ---- Intro ---- */
 
-.intro {
-  padding-top: 3rem;
-  padding-bottom: 2rem;
-}
-
 .intro .prose {
-  font-size: 1.15rem;
-  text-align: center;
-}
-
-/* ---- Story (horn entries) ---- */
-
-.story {
-  background: var(--parchment);
-}
-
-.horn-list {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.horn-entry {
-  margin-bottom: 2.5rem;
-}
-
-.horn-entry h3 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.4rem;
-  color: var(--dark);
-  margin-bottom: 0.6rem;
-}
-
-.horn-entry p {
   font-size: 1.05rem;
 }
 
-.more-coming {
-  text-align: center;
-  color: var(--text-light);
+/* ---- On the bench (priorities) ---- */
+
+.bench-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bench-item {
+  display: flex;
+  gap: 1.2rem;
+  padding: 1rem 0;
+  border-top: 1px dashed var(--rule);
+  align-items: flex-start;
+}
+
+.bench-item:last-child {
+  border-bottom: 1px dashed var(--rule);
+}
+
+.bench-priority {
+  flex-shrink: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--flag);
+  line-height: 1;
+  min-width: 2.8rem;
+}
+
+.bench-body h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+  color: var(--ink);
+}
+
+.bench-body p {
   font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.bench-note {
+  font-size: 0.85rem;
+  color: var(--ink-mute);
+  font-style: italic;
   margin-top: 1rem;
 }
 
-/* ---- Collection ---- */
+/* ---- Collection (horn entries) ---- */
 
 .collection-intro {
-  text-align: center;
-  font-size: 1.1rem;
-  color: var(--text-light);
+  font-size: 1rem;
+  color: var(--ink-soft);
   margin-bottom: 2rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 600px;
 }
 
 .origin-group {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.1rem;
-  color: var(--gold);
+  font-size: 0.85rem;
+  color: var(--patina);
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin: 2.5rem 0 1rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin: 2.5rem 0 1.2rem;
   padding-bottom: 0.4rem;
-  border-bottom: 1px solid rgba(184, 134, 11, 0.3);
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  border-bottom: 1px solid var(--rule);
+}
+
+.horn-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.horn-entry {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.horn-figure {
+  margin: 0;
+}
+
+.horn-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rule);
+  background: var(--paper-soft);
+  filter: grayscale(15%) contrast(0.95);
+}
+
+.horn-figure figcaption {
+  font-size: 0.7rem;
+  color: var(--ink-mute);
+  margin-top: 0.3rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.horn-text h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.horn-text p {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
 }
 
 .horn-meta {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
+  gap: 0.8rem;
   flex-wrap: wrap;
   align-items: center;
 }
 
 .horn-location {
-  font-size: 0.85rem;
-  color: var(--text-light);
+  font-size: 0.8rem;
+  color: var(--ink-mute);
   font-style: italic;
 }
 
 .horn-status {
-  font-size: 0.75rem;
-  padding: 2px 10px;
-  border-radius: 12px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
   text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 2px;
 }
 
 .status-playing {
-  background: rgba(46, 125, 50, 0.12);
-  color: #2e7d32;
-  border: 1px solid rgba(46, 125, 50, 0.3);
+  color: var(--patina);
+  border-color: var(--patina);
+  background: rgba(61, 90, 74, 0.06);
 }
 
 .status-repair {
-  background: rgba(230, 81, 0, 0.1);
-  color: #e65100;
-  border: 1px solid rgba(230, 81, 0, 0.25);
+  color: var(--flag);
+  border-color: var(--flag);
+  background: rgba(138, 58, 42, 0.06);
 }
 
 .status-project {
-  background: rgba(136, 14, 79, 0.08);
-  color: #880e4f;
-  border: 1px solid rgba(136, 14, 79, 0.2);
+  color: var(--ink-mute);
+  border-color: var(--ink-mute);
+  background: rgba(107, 107, 107, 0.06);
 }
 
-/* ---- Skills grid ---- */
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-}
-
-.skill-card {
-  background: var(--white);
-  padding: 2rem 1.5rem;
-  border: 1px solid rgba(184, 134, 11, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.skill-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px var(--shadow);
-}
-
-.skill-card h3 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: var(--dark);
-}
-
-.skill-card p {
-  font-size: 0.95rem;
-  color: var(--text-light);
-}
-
-/* ---- Why Vintage ---- */
-
-.why-vintage {
-  background: var(--parchment);
-}
+/* ---- Why vintage ---- */
 
 .why-vintage .prose p:last-child {
   font-weight: 600;
-  color: var(--dark);
-}
-
-/* ---- About ---- */
-
-.about .prose {
-  text-align: center;
+  color: var(--ink);
 }
 
 /* ---- Footer ---- */
 
 .site-footer {
-  background: var(--dark);
-  color: rgba(245, 230, 200, 0.5);
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  border-top: 2px solid var(--gold);
+  background: var(--paper);
+  color: var(--ink-mute);
+  padding: 2rem 1.5rem;
+  font-size: 0.8rem;
+  border-top: 1px solid var(--rule);
+}
+
+.site-footer .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-footer a {
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 /* ---- Responsive ---- */
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+
+  .hero {
+    padding: 3rem 1.5rem 2rem;
+  }
+
   .hero h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
 
   .tagline {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .nav-links {
@@ -383,10 +405,10 @@ body {
     left: 0;
     right: 0;
     flex-direction: column;
-    background: var(--dark);
-    padding: 1rem 2rem;
-    gap: 1rem;
-    border-bottom: 2px solid var(--gold);
+    background: var(--paper);
+    padding: 1rem 1.5rem;
+    gap: 0.8rem;
+    border-bottom: 1px solid var(--rule);
   }
 
   .nav-links.active {
@@ -397,17 +419,22 @@ body {
     display: block;
   }
 
-  .section {
-    padding: 3rem 0;
+  .horn-entry {
+    grid-template-columns: 100px 1fr;
+    gap: 1rem;
   }
 
-  .skills-grid {
-    grid-template-columns: 1fr 1fr;
+  .section {
+    padding: 2.5rem 0 2rem;
   }
 }
 
-@media (max-width: 480px) {
-  .skills-grid {
+@media (max-width: 420px) {
+  .horn-entry {
     grid-template-columns: 1fr;
+  }
+
+  .horn-figure img {
+    max-width: 180px;
   }
 }

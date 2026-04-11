@@ -16,8 +16,9 @@
     <nav class="nav">
       <a href="#" class="logo">OhMySax</a>
       <ul class="nav-links">
+        <li><a href="#bench">Bench</a></li>
         <li><a href="#collection">Collection</a></li>
-        <li><a href="#learning">Learning</a></li>
+        <li><a href="#why">Why</a></li>
         <li><a href="#about">About</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
@@ -25,11 +26,10 @@
   </header>
 
   <section class="hero">
-    <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>OhMySax</h1>
-      <p class="tagline">Learning to Fix What I Love</p>
-      <p class="subtitle">A vintage saxophone repair journey — one horn at a time</p>
+      <p class="tagline">Learning to fix what I love</p>
+      <p class="subtitle">A workshop log · Barcelona</p>
     </div>
   </section>
 
@@ -42,165 +42,235 @@
           because nobody wants to take on the repair.
         </p>
         <p>
-          OhMySax is my project to learn vintage saxophone repair from the ground up. Not in a school.
-          Not as an apprentice (yet). Just hands-on, horn by horn, mistake by mistake.
+          OhMySax is where I'm learning vintage saxophone repair from the ground up — no school,
+          no apprenticeship yet, just hands-on work on horns I've bought and inherited.
         </p>
       </div>
     </div>
   </section>
 
+  <section id="bench" class="section on-bench">
+    <div class="container">
+      <p class="kicker">Now</p>
+      <h2>On the Bench</h2>
+      <div class="divider"></div>
+      <ul class="bench-list">
+        <li class="bench-item">
+          <div class="bench-priority">P1</div>
+          <div class="bench-body">
+            <h3>Yanagisawa A-50/500 — fix the leaks</h3>
+            <p>Leaks on the G key and low A. Pad work on a forgiving horn before touching anything older or more delicate.</p>
+          </div>
+        </li>
+        <li class="bench-item">
+          <div class="bench-priority">P2</div>
+          <div class="bench-body">
+            <h3>Selmer Bundy — finalization</h3>
+            <p>Repadded but not yet reassembled. A spring mechanism on the stack is blocking final closure. Close to done.</p>
+          </div>
+        </li>
+      </ul>
+      <p class="bench-note">Updated as work progresses. Next horns queue up in the Collection section below.</p>
+    </div>
+  </section>
+
   <section id="collection" class="section story">
     <div class="container">
+      <p class="kicker">Inventory</p>
       <h2>The Collection</h2>
       <div class="divider"></div>
-      <p class="collection-intro">11 alto saxophones across five countries. Some play, some need work, all have a story.</p>
+      <p class="collection-intro">11 alto saxophones spread across five countries. Most of them need work.</p>
+
+      <p class="bench-note">Photos below are reference images of the same models. Real photos of each actual horn will replace them as I get to each one on the bench.</p>
 
       <h3 class="origin-group">Japan</h3>
       <div class="horn-list">
-        <div class="horn-entry">
-          <h3>Yanagisawa A-992</h3>
-          <div class="horn-meta">
-            <span class="horn-location">Barcelona</span>
-            <span class="horn-status status-playing">Playing</span>
+        <article class="horn-entry">
+          <figure class="horn-figure">
+            <img src="./images/yanagisawa-a992.jpg" alt="Yanagisawa A-992 alto saxophone reference">
+            <figcaption>reference image</figcaption>
+          </figure>
+          <div class="horn-text">
+            <h3>Yanagisawa A-992</h3>
+            <div class="horn-meta">
+              <span class="horn-location">Barcelona</span>
+              <span class="horn-status status-playing">Playing</span>
+            </div>
+            <p>Main player. The benchmark everything else gets compared to.</p>
           </div>
-          <p>Main player. The benchmark everything else gets compared to.</p>
-        </div>
-        <div class="horn-entry">
-          <h3>Yanagisawa A-50 / A-500</h3>
-          <div class="horn-meta">
-            <span class="horn-location">Barcelona</span>
-            <span class="horn-status status-repair">Repair project</span>
+        </article>
+        <article class="horn-entry">
+          <figure class="horn-figure">
+            <img src="./images/yanagisawa-a500.jpg" alt="Yanagisawa A-50 alto saxophone reference">
+            <figcaption>reference image</figcaption>
+          </figure>
+          <div class="horn-text">
+            <h3>Yanagisawa A-50 / A-500</h3>
+            <div class="horn-meta">
+              <span class="horn-location">Barcelona</span>
+              <span class="horn-status status-repair">Repair project</span>
+            </div>
+            <p>Leaks on G key and low A key. Repair-and-sell project — good candidate for learning pad work on a forgiving instrument.</p>
           </div>
-          <p>Leaks on G key and low A key. Repair-and-sell project — good candidate for learning pad work on a forgiving instrument.</p>
-        </div>
-        <div class="horn-entry">
-          <h3>Yamaha YAS-21 (purple logo)</h3>
-          <div class="horn-meta">
-            <span class="horn-location">Miami or CDMX — to confirm</span>
-            <span class="horn-status status-playing">Playing</span>
+        </article>
+        <article class="horn-entry">
+          <figure class="horn-figure">
+            <img src="./images/yamaha-yas21.jpg" alt="Yamaha YAS-21 alto saxophone reference">
+            <figcaption>reference image</figcaption>
+          </figure>
+          <div class="horn-text">
+            <h3>Yamaha YAS-21 (purple logo)</h3>
+            <div class="horn-meta">
+              <span class="horn-location">Miami or CDMX — to confirm</span>
+              <span class="horn-status status-playing">Playing</span>
+            </div>
+            <p>A workhorse student horn from the era when Yamaha student models were still made in Japan. Plays fine.</p>
           </div>
-          <p>A workhorse student horn from the era when Yamaha student models were still made in Japan. Plays fine.</p>
-        </div>
+        </article>
       </div>
 
       <h3 class="origin-group">USA</h3>
       <div class="horn-list">
-        <div class="horn-entry">
-          <h3>Martin Handcraft</h3>
-          <div class="horn-meta">
-            <span class="horn-location">Miami</span>
-            <span class="horn-status status-project">Project state</span>
+        <article class="horn-entry">
+          <figure class="horn-figure">
+            <img src="./images/martin-handcraft.jpg" alt="Martin Handcraft alto saxophone reference">
+            <figcaption>reference image</figcaption>
+          </figure>
+          <div class="horn-text">
+            <h3>Martin Handcraft</h3>
+            <div class="horn-meta">
+              <span class="horn-location">Miami</span>
+              <span class="horn-status status-project">Project state</span>
+            </div>
+            <p>Stripped down. A serious project — these Martins have a unique tone when they play, but this one needs everything.</p>
           </div>
-          <p>Stripped down. A serious project — these Martins have a unique tone when they play, but this one needs everything.</p>
-        </div>
-        <div class="horn-entry">
-          <h3>Conn New Wonder Series I</h3>
-          <div class="horn-meta">
-            <span class="horn-location">Miami</span>
-            <span class="horn-status status-project">Needs major overhaul</span>
+        </article>
+        <article class="horn-entry">
+          <figure class="horn-figure">
+            <img src="./images/conn-new-wonder.jpg" alt="Conn New Wonder Series I alto saxophone reference">
+            <figcaption>reference image</figcaption>
+          </figure>
+          <div class="horn-text">
+            <h3>Conn New Wonder Series I</h3>
+            <div class="horn-meta">
+              <span class="horn-location">Miami</span>
+              <span class="horn-status status-project">Needs major overhaul</span>
+            </div>
+            <p>An early Conn with the rolled tone holes. Needs a full rebuild — keywork, pads, corks, the lot.</p>
           </div>
-          <p>An early Conn with the rolled tone holes. Needs a full rebuild — keywork, pads, corks, the lot.</p>
-        </div>
-        <div class="horn-entry">
-          <h3>Buescher 400</h3>
-          <div class="horn-meta">
-            <span class="horn-location">Miami</span>
-            <span class="horn-status status-playing">Playing</span>
+        </article>
+        <article class="horn-entry">
+          <figure class="horn-figure">
+            <img src="./images/buescher-400.jpg" alt="Buescher 400 alto saxophone reference">
+            <figcaption>reference image</figcaption>
+          </figure>
+          <div class="horn-text">
+            <h3>Buescher 400</h3>
+            <div class="horn-meta">
+              <span class="horn-location">Miami</span>
+              <span class="horn-status status-playing">Playing</span>
+            </div>
+            <p>Plays. Good ergonomics, decent pads. One of the more usable horns in the Miami stash.</p>
           </div>
-          <p>Plays. Good ergonomics, decent pads. One of the more usable horns in the Miami stash.</p>
-        </div>
-        <div class="horn-entry">
-          <h3>Selmer Bundy</h3>
-          <div class="horn-meta">
-            <span class="horn-location">Miami</span>
-            <span class="horn-status status-repair">Repair in progress</span>
+        </article>
+        <article class="horn-entry">
+          <figure class="horn-figure">
+            <img src="./images/selmer-bundy.jpg" alt="Selmer Bundy alto saxophone reference">
+            <figcaption>reference image</figcaption>
+          </figure>
+          <div class="horn-text">
+            <h3>Selmer Bundy</h3>
+            <div class="horn-meta">
+              <span class="horn-location">Miami</span>
+              <span class="horn-status status-repair">Repair in progress</span>
+            </div>
+            <p>Repadded but unfinished. Spring mechanism issue preventing full reassembly. Close to done.</p>
           </div>
-          <p>Repadded but unfinished. Spring mechanism issue preventing full reassembly. Close to done.</p>
-        </div>
+        </article>
       </div>
 
       <h3 class="origin-group">France</h3>
       <div class="horn-list">
-        <div class="horn-entry">
-          <h3>Couesnon Monopole Conservatoires II</h3>
-          <div class="horn-meta">
-            <span class="horn-location">In transit — ColisExpat Pantin &rarr; Barcelona</span>
-            <span class="horn-status status-repair">Needs work</span>
+        <article class="horn-entry">
+          <figure class="horn-figure">
+            <img src="./images/couesnon-monopole.jpg" alt="Couesnon Monopole Conservatoires II alto saxophone reference">
+            <figcaption>reference image</figcaption>
+          </figure>
+          <div class="horn-text">
+            <h3>Couesnon Monopole Conservatoires II</h3>
+            <div class="horn-meta">
+              <span class="horn-location">In transit — ColisExpat Pantin &rarr; Barcelona</span>
+              <span class="horn-status status-repair">Needs work</span>
+            </div>
+            <p>Needs neck cork and minor adjustments, eventual repad. A proper French-made horn with character.</p>
           </div>
-          <p>Needs neck cork and minor adjustments, eventual repad. A proper French-made horn with character.</p>
-        </div>
+        </article>
       </div>
 
       <h3 class="origin-group">Italy</h3>
       <div class="horn-list">
-        <div class="horn-entry">
-          <h3>Ida Maria Grassi (1926)</h3>
-          <div class="horn-meta">
-            <span class="horn-location">Miami</span>
-            <span class="horn-status status-project">Needs major overhaul</span>
+        <article class="horn-entry">
+          <figure class="horn-figure">
+            <img src="./images/grassi.jpg" alt="Ida Maria Grassi alto saxophone reference">
+            <figcaption>reference image</figcaption>
+          </figure>
+          <div class="horn-text">
+            <h3>Ida Maria Grassi (1926)</h3>
+            <div class="horn-meta">
+              <span class="horn-location">Miami</span>
+              <span class="horn-status status-project">Needs major overhaul</span>
+            </div>
+            <p>Nearly a hundred years old. Italian craftsmanship from the interwar period. Needs a full rebuild.</p>
           </div>
-          <p>Nearly a hundred years old. Italian craftsmanship from the interwar period. Needs a full rebuild.</p>
-        </div>
-        <div class="horn-entry">
-          <h3>Sequoia</h3>
-          <div class="horn-meta">
-            <span class="horn-location">Brussels</span>
-            <span class="horn-status status-playing">Playing</span>
+        </article>
+        <article class="horn-entry">
+          <figure class="horn-figure">
+            <img src="./images/sequoia.jpg" alt="Sequoia alto saxophone reference">
+            <figcaption>reference image</figcaption>
+          </figure>
+          <div class="horn-text">
+            <h3>Sequoia</h3>
+            <div class="horn-meta">
+              <span class="horn-location">Brussels</span>
+              <span class="horn-status status-playing">Playing</span>
+            </div>
+            <p>An Italian-branded alto. Plays well enough for practice sessions when in Brussels.</p>
           </div>
-          <p>An Italian-branded alto. Plays well enough for practice sessions when in Brussels.</p>
-        </div>
+        </article>
       </div>
 
       <h3 class="origin-group">The First One</h3>
       <div class="horn-list">
-        <div class="horn-entry">
-          <h3>Gear4Music Silver Alto</h3>
-          <div class="horn-meta">
-            <span class="horn-location">Sapri</span>
-            <span class="horn-status status-playing">Playing</span>
+        <article class="horn-entry">
+          <figure class="horn-figure">
+            <img src="./images/gear4music.jpg" alt="Gear4Music student alto saxophone reference">
+            <figcaption>reference image</figcaption>
+          </figure>
+          <div class="horn-text">
+            <h3>Gear4Music Silver Alto</h3>
+            <div class="horn-meta">
+              <span class="horn-location">Sapri</span>
+              <span class="horn-status status-playing">Playing</span>
+            </div>
+            <p>The one that started everything. A cheap Chinese-made horn that got me hooked. Lives in southern Italy now. Sentimental value only.</p>
           </div>
-          <p>The one that started everything. A cheap Chinese-made horn that got me hooked. Lives in southern Italy now. Sentimental value only.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="learning" class="section learning">
-    <div class="container">
-      <h2>What I'm Learning</h2>
-      <div class="divider"></div>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h3>Pad Work</h3>
-          <p>The core skill. Getting a consistent seal across all tone holes.</p>
-        </div>
-        <div class="skill-card">
-          <h3>Dent Removal</h3>
-          <p>Body, bell, and neck work. Preserving original lacquer and engraving.</p>
-        </div>
-        <div class="skill-card">
-          <h3>Key Regulation</h3>
-          <p>The invisible art of making everything move together.</p>
-        </div>
-        <div class="skill-card">
-          <h3>When to Stop</h3>
-          <p>Knowing the limits of my current skill before I make things worse.</p>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
   <section id="why" class="section why-vintage">
     <div class="container">
+      <p class="kicker">Why</p>
       <h2>Why Vintage Saxophones</h2>
       <div class="divider"></div>
       <div class="prose">
         <p>
           Modern horns are precision-manufactured and mostly excellent out of the box. Vintage
           horns — Conn, King, Buescher, Martin, SML, early Selmers — were built differently.
-          Heavier brass, hand-engraved bells, keywork that feels different under your fingers.
-          Many of them sit in attics and closets because the cost of professional repair exceeds
-          what people think they're worth.
+          The brass is heavier, the engraving was done by hand, and the keywork feels noticeably
+          different under your fingers. A lot of these instruments end up sitting in attics
+          because professional repair costs more than their owners think they're worth.
         </p>
         <p>
           I think they're worth it. I'm learning to prove that with my hands.
@@ -211,13 +281,13 @@
 
   <section id="long-game" class="section long-game">
     <div class="container">
+      <p class="kicker">Plan</p>
       <h2>The Long Game</h2>
       <div class="divider"></div>
       <div class="prose">
         <p>
-          Right now this is a learning project. Eventually — maybe — it becomes something more.
-          A small repair practice. A way to bring dead horns back to life. A craft that doesn't
-          depend on screens, servers, or software.
+          Right now this is a learning project. Eventually it might turn into a small repair
+          practice — a craft that doesn't need a screen to exist.
         </p>
         <p>
           For now, I'm documenting what I learn, one horn at a time.
@@ -228,6 +298,7 @@
 
   <section id="about" class="section about">
     <div class="container">
+      <p class="kicker">Who</p>
       <h2>About Me</h2>
       <div class="divider"></div>
       <div class="prose">
@@ -247,7 +318,8 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 OhMySax — Learning to Fix What I Love</p>
+      <p>&copy; 2026 OhMySax</p>
+      <p>Reference photos: see <a href="./credits.html">credits</a></p>
     </div>
   </footer>
 
