@@ -268,41 +268,18 @@ body {
 }
 
 .horn-entry {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 1.2rem;
-  align-items: start;
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--rule);
 }
 
-.horn-figure {
-  margin: 0;
-}
-
-.horn-figure img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 1px solid var(--rule);
-  background: var(--paper-soft);
-  filter: grayscale(15%) contrast(0.95);
-}
-
-.horn-figure figcaption {
-  font-size: 0.7rem;
-  color: var(--ink-mute);
-  margin-top: 0.3rem;
-  font-style: italic;
-  text-align: center;
-}
-
-.horn-text h3 {
+.horn-entry h3 {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.25rem;
   color: var(--ink);
   margin-bottom: 0.4rem;
 }
 
-.horn-text p {
+.horn-entry p {
   font-size: 0.95rem;
   color: var(--ink-soft);
   margin-top: 0.5rem;
