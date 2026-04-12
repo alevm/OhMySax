@@ -410,8 +410,4 @@ body {
   .horn-entry {
     grid-template-columns: 1fr;
   }
-
-  .horn-figure img {
-    max-width: 180px;
-  }
 }
