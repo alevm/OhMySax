@@ -1,0 +1,34 @@
+name: Deploy to Sisyphus
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Trigger Sisyphus deploy
+        env:
+          DEPLOY_SECRET: ${{ secrets.DEPLOY_SECRET }}
+          DEPLOY_URL: ${{ secrets.DEPLOY_URL }}
+        run: |
+          PAYLOAD='{"branch":"main"}'
+          SIGNATURE="sha256=$(echo -n "$PAYLOAD" | openssl dgst -sha256 -hmac "$DEPLOY_SECRET" | cut -d' ' -f2)"
+          curl -sf -X POST "$DEPLOY_URL" \
+            -H "Content-Type: application/json" \
+            -H "X-Deploy-Signature: $SIGNATURE" \
+            -d "$PAYLOAD"
+
+      - name: Verify deployment
+        run: |
+          sleep 15
+          CODE=$(curl -so /dev/null -w "%{http_code}" --max-time 10 "https://ohmysax.levm.eu/")
+          if [[ ! "$CODE" =~ ^(200|301|302|401)$ ]]; then
+            echo "DEPLOY VERIFICATION FAILED: ohmysax.levm.eu returned $CODE"
+            exit 1
+          fi
+          echo "Deployment verified: ohmysax.levm.eu returned $CODE"
