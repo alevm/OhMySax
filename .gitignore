@@ -1,1 +1,24 @@
+# Review files
 ARCHITECT_REVIEW_2026-04-11.md
+PANEL_REVIEW_2026-04-12.md
+
+# Secrets and credentials
+.env
+.env.*
+*.key
+*.pem
+*.p12
+credentials.*
+*secret*
+.sisyphus-token
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Build artifacts
+node_modules/
+dist/
+build/

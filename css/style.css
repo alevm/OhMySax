@@ -396,18 +396,8 @@ body {
     display: block;
   }
 
-  .horn-entry {
-    grid-template-columns: 100px 1fr;
-    gap: 1rem;
-  }
-
   .section {
     padding: 2.5rem 0 2rem;
   }
 }
 
-@media (max-width: 420px) {
-  .horn-entry {
-    grid-template-columns: 1fr;
-  }
-}
