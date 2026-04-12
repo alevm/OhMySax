@@ -26,6 +26,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-family: 'Lora', Georgia, 'Times New Roman', serif;
   font-size: 17px;
