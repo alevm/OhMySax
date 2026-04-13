@@ -1,4 +1,4 @@
-// OhMySax Admin — commits JSON data + photos to GitHub via Contents API
+// OhMySax Admin — commits JSON data + photos + audio to GitHub via Contents API
 (function () {
   const REPO = 'alevm/OhMySax';
   const BRANCH = 'main';
@@ -74,6 +74,53 @@
     return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   }
 
+  // --- Workshop steps management ---
+  let stepCount = 0;
+  const stepsList = document.getElementById('ws-steps-list');
+
+  document.getElementById('ws-add-step').addEventListener('click', () => {
+    stepCount++;
+    const block = document.createElement('div');
+    block.className = 'step-block';
+    block.dataset.stepIdx = stepCount;
+    block.innerHTML = `
+      <button type="button" class="step-remove" title="Remove step">&times;</button>
+      <label>Stage</label>
+      <select class="step-stage">
+        <option value="inspection">Inspection</option>
+        <option value="disassembly">Disassembly</option>
+        <option value="diagnosis">Diagnosis</option>
+        <option value="repair">Repair</option>
+        <option value="reassembly">Reassembly</option>
+        <option value="testing">Testing</option>
+        <option value="planning">Planning</option>
+        <option value="complete">Complete</option>
+      </select>
+      <label>Date</label>
+      <input type="date" class="step-date">
+      <label>Description</label>
+      <textarea class="step-desc" rows="2"></textarea>
+      <label>Photo path (optional)</label>
+      <input type="text" class="step-photo" placeholder="images/workshop/step-photo.jpg">
+    `;
+    block.querySelector('.step-remove').addEventListener('click', () => block.remove());
+    stepsList.appendChild(block);
+  });
+
+  function collectSteps() {
+    const steps = [];
+    stepsList.querySelectorAll('.step-block').forEach(block => {
+      const stage = block.querySelector('.step-stage').value;
+      const date = block.querySelector('.step-date').value;
+      const description = block.querySelector('.step-desc').value.trim();
+      const photo = block.querySelector('.step-photo').value.trim();
+      if (description) {
+        steps.push({ stage, date, description, photo });
+      }
+    });
+    return steps;
+  }
+
   // --- Workshop entry ---
   document.getElementById('form-workshop').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -86,7 +133,8 @@
       horn: document.getElementById('ws-horn').value,
       summary: document.getElementById('ws-summary').value,
       body: document.getElementById('ws-body').value,
-      photos: document.getElementById('ws-photos').value.split(',').map(s => s.trim()).filter(Boolean)
+      photos: document.getElementById('ws-photos').value.split(',').map(s => s.trim()).filter(Boolean),
+      steps: collectSteps()
     };
 
     try {
@@ -98,12 +146,14 @@
       await ghPut('data/workshops.json', content, `Add workshop entry: ${entry.title}`, file.sha);
       showStatus('status-workshop', 'Published! Deploy will trigger automatically.', true);
       e.target.reset();
+      stepsList.innerHTML = '';
+      stepCount = 0;
     } catch (err) {
       showStatus('status-workshop', err.message, false);
     }
   });
 
-  // --- Comparison entry ---
+  // --- Comparison entry (with audio fields) ---
   document.getElementById('form-comparison').addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!getToken()) return showStatus('status-comparison', 'Set your GitHub token first.', false);
@@ -115,6 +165,8 @@
       description: document.getElementById('cmp-desc').value,
       before: document.getElementById('cmp-before').value.trim(),
       after: document.getElementById('cmp-after').value.trim(),
+      audioBefore: document.getElementById('cmp-audio-before').value.trim(),
+      audioAfter: document.getElementById('cmp-audio-after').value.trim(),
       date: document.getElementById('cmp-date').value
     };
 
@@ -156,7 +208,6 @@
     const img = document.createElement('img');
     img.src = URL.createObjectURL(file);
     preview.appendChild(img);
-    // Auto-fill path if empty
     const pathInput = document.getElementById('photo-path');
     if (!pathInput.value) {
       pathInput.value = 'images/' + file.name;
@@ -175,7 +226,6 @@
       showStatus('status-photo', 'Reading file...', true);
       const base64 = await fileToBase64(selectedFile);
 
-      // Check if file already exists (to get sha)
       let sha;
       try {
         const existing = await ghGet(path);
@@ -190,6 +240,62 @@
       e.target.reset();
     } catch (err) {
       showStatus('status-photo', err.message, false);
+    }
+  });
+
+  // --- Audio upload ---
+  const audioDropArea = document.getElementById('audio-drop');
+  const audioFileInput = document.getElementById('audio-file');
+  const audioPreview = document.getElementById('audio-preview');
+  let selectedAudioFile = null;
+
+  audioDropArea.addEventListener('click', () => audioFileInput.click());
+  audioDropArea.addEventListener('dragover', (e) => { e.preventDefault(); audioDropArea.style.borderColor = 'var(--patina)'; });
+  audioDropArea.addEventListener('dragleave', () => { audioDropArea.style.borderColor = ''; });
+  audioDropArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    audioDropArea.style.borderColor = '';
+    if (e.dataTransfer.files.length) handleAudioFile(e.dataTransfer.files[0]);
+  });
+  audioFileInput.addEventListener('change', () => {
+    if (audioFileInput.files.length) handleAudioFile(audioFileInput.files[0]);
+  });
+
+  function handleAudioFile(file) {
+    selectedAudioFile = file;
+    audioPreview.textContent = `Selected: ${file.name} (${(file.size / 1024).toFixed(0)} KB)`;
+    const pathInput = document.getElementById('audio-path');
+    if (!pathInput.value) {
+      pathInput.value = 'audio/' + file.name;
+    }
+  }
+
+  document.getElementById('form-audio').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!getToken()) return showStatus('status-audio', 'Set your GitHub token first.', false);
+    if (!selectedAudioFile) return showStatus('status-audio', 'Select an audio file first.', false);
+
+    const path = document.getElementById('audio-path').value.trim();
+    if (!path) return showStatus('status-audio', 'Enter a destination path.', false);
+
+    try {
+      showStatus('status-audio', 'Reading file...', true);
+      const base64 = await fileToBase64(selectedAudioFile);
+
+      let sha;
+      try {
+        const existing = await ghGet(path);
+        sha = existing.sha;
+      } catch (ignore) { /* file doesn't exist yet */ }
+
+      showStatus('status-audio', 'Uploading to GitHub...', true);
+      await ghPutBinary(path, base64, `Add audio: ${path}`, sha);
+      showStatus('status-audio', `Uploaded ${path}. Deploy will trigger automatically.`, true);
+      selectedAudioFile = null;
+      audioPreview.textContent = '';
+      e.target.reset();
+    } catch (err) {
+      showStatus('status-audio', err.message, false);
     }
   });
 
