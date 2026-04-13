@@ -6,6 +6,26 @@
     "horn": "Yanagisawa A-50/500",
     "summary": "Used the LED leak light to confirm the G# cup pad isn't seating. Resonator visibly off-center on the low A pad. Both need replacing.",
     "body": "First proper leak test session. Set up the LED light inside the bore and worked through the keys one by one in a dark room. The G# cluster lit up immediately — the pad cup is closing, but the pad itself has hardened and lost its impression of the tone hole rim. The low A was subtler: the resonator has shifted maybe 1mm off-center, just enough that one side of the pad lifts when the key closes.\n\nPlan: replace both pads with Pisoni Pro pads, reseat resonators with shellac. Ordered 2mm and 3mm cork sheet for the G# key height adjustment.",
-    "photos": []
+    "photos": [],
+    "steps": [
+      {
+        "stage": "inspection",
+        "date": "2026-04-10",
+        "description": "LED leak light test in dark room. G# cluster lit up immediately — hardened pad lost its impression of the tone hole rim.",
+        "photo": ""
+      },
+      {
+        "stage": "diagnosis",
+        "date": "2026-04-10",
+        "description": "Low A resonator shifted ~1mm off-center, causing one side of the pad to lift on close. Both pads need replacing.",
+        "photo": ""
+      },
+      {
+        "stage": "planning",
+        "date": "2026-04-10",
+        "description": "Ordered Pisoni Pro pads, shellac for resonator reseating, 2mm and 3mm cork sheet for G# key height adjustment.",
+        "photo": ""
+      }
+    ]
   }
 ]

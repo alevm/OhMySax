@@ -27,6 +27,38 @@
           `<p>${esc(p)}</p>`
         ).join('');
 
+        // Render timeline steps if present
+        const steps = entry.steps || [];
+        let timelineHtml = '';
+        if (steps.length) {
+          const stepsMarkup = steps.map(step => {
+            const stepDate = step.date
+              ? new Date(step.date + 'T00:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+              : '';
+            const photoMarkup = step.photo
+              ? `<img src="${esc(step.photo)}" alt="${esc(step.stage)}" class="timeline-photo" loading="lazy">`
+              : '';
+            return `
+              <li class="timeline-step">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <div class="timeline-stage">${esc(step.stage)}</div>
+                  ${stepDate ? `<div class="timeline-step-date">${esc(stepDate)}</div>` : ''}
+                  <p class="timeline-desc">${esc(step.description)}</p>
+                  ${photoMarkup}
+                </div>
+              </li>
+            `;
+          }).join('');
+
+          timelineHtml = `
+            <div class="timeline-section">
+              <h4 class="timeline-heading">Repair Timeline</h4>
+              <ul class="timeline">${stepsMarkup}</ul>
+            </div>
+          `;
+        }
+
         return `
           <article class="workshop-entry" id="${esc(entry.id)}">
             <div class="workshop-date">${esc(dateStr)}</div>
@@ -34,6 +66,7 @@
             <div class="workshop-horn">${esc(entry.horn)}</div>
             <div class="prose">${bodyHtml}</div>
             ${photos ? `<div class="workshop-photos">${photos}</div>` : ''}
+            ${timelineHtml}
           </article>
         `;
       }).join('');
