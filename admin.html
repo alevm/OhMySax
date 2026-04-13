@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — OhMySax</title>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <style>
+    .admin-form { margin: 1.5rem 0; }
+    .admin-form label { display: block; font-weight: 600; margin: 1rem 0 0.3rem; font-size: 0.9rem; }
+    .admin-form input, .admin-form textarea, .admin-form select {
+      width: 100%; padding: 0.5rem; font-family: inherit; font-size: 0.95rem;
+      border: 1px solid var(--rule); background: var(--paper-soft); color: var(--ink);
+      border-radius: 2px;
+    }
+    .admin-form textarea { min-height: 120px; resize: vertical; }
+    .admin-form button {
+      margin-top: 1rem; padding: 0.6rem 1.5rem; font-family: inherit;
+      font-size: 0.95rem; font-weight: 600; color: var(--paper);
+      background: var(--patina); border: none; border-radius: 2px; cursor: pointer;
+    }
+    .admin-form button:hover { background: var(--patina-soft); }
+    .admin-tabs { display: flex; gap: 0; margin-bottom: 0; }
+    .admin-tab {
+      padding: 0.6rem 1.2rem; cursor: pointer; font-size: 0.9rem;
+      border: 1px solid var(--rule); border-bottom: none; background: var(--paper-soft);
+      font-family: inherit; font-weight: 600; color: var(--ink-mute);
+    }
+    .admin-tab.active { background: var(--paper); color: var(--ink); }
+    .admin-panel { border: 1px solid var(--rule); padding: 1.5rem; background: var(--paper); }
+    .admin-panel[hidden] { display: none; }
+    .admin-status { margin-top: 1rem; padding: 0.8rem; font-size: 0.9rem; border-radius: 2px; }
+    .admin-status.ok { background: rgba(61,90,74,0.1); color: var(--patina); }
+    .admin-status.err { background: rgba(138,58,42,0.1); color: var(--flag); }
+    .admin-setup { margin-bottom: 2rem; padding: 1rem; border: 1px dashed var(--rule); }
+    .admin-setup input { margin-top: 0.3rem; }
+    .photo-upload-area {
+      border: 2px dashed var(--rule); padding: 1.5rem; text-align: center;
+      margin-top: 0.5rem; cursor: pointer; color: var(--ink-mute); font-size: 0.9rem;
+    }
+    .photo-upload-area:hover { border-color: var(--patina); }
+    .photo-upload-area input { display: none; }
+    .photo-preview { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .photo-preview img { height: 80px; border: 1px solid var(--rule); }
+  </style>
+</head>
+<body>
+
+<main>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="/" class="logo">OhMySax</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/workshop.html">Workshop</a></li>
+        <li><a href="/comparisons.html">Before/After</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Admin</h1>
+      <p class="tagline">Add workshop entries and comparisons</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="admin-setup">
+        <label for="gh-token">GitHub Personal Access Token (stored in browser only)</label>
+        <input type="password" id="gh-token" placeholder="ghp_...">
+        <p style="font-size:0.8rem;color:var(--ink-mute);margin-top:0.3rem;">
+          Needs <code>repo</code> scope on <code>alevm/OhMySax</code>. Never sent anywhere except GitHub API.
+        </p>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="workshop">Workshop Entry</button>
+        <button class="admin-tab" data-tab="comparison">Before/After</button>
+        <button class="admin-tab" data-tab="photo">Upload Photo</button>
+      </div>
+
+      <!-- Workshop entry form -->
+      <div class="admin-panel" id="panel-workshop">
+        <form class="admin-form" id="form-workshop">
+          <label for="ws-date">Date</label>
+          <input type="date" id="ws-date" required>
+
+          <label for="ws-title">Title</label>
+          <input type="text" id="ws-title" placeholder="Yanagisawa A-50 — diagnosing the G# leak" required>
+
+          <label for="ws-horn">Horn</label>
+          <input type="text" id="ws-horn" placeholder="Yanagisawa A-50/500" required>
+
+          <label for="ws-summary">Summary (one line)</label>
+          <input type="text" id="ws-summary" placeholder="Short summary for listing" required>
+
+          <label for="ws-body">Full entry (paragraphs separated by blank lines)</label>
+          <textarea id="ws-body" required></textarea>
+
+          <label for="ws-photos">Photo paths (comma-separated, e.g. images/photo1.jpg)</label>
+          <input type="text" id="ws-photos" placeholder="images/workshop/my-photo.jpg">
+
+          <button type="submit">Publish Workshop Entry</button>
+        </form>
+        <div id="status-workshop"></div>
+      </div>
+
+      <!-- Comparison form -->
+      <div class="admin-panel" id="panel-comparison" hidden>
+        <form class="admin-form" id="form-comparison">
+          <label for="cmp-title">Title</label>
+          <input type="text" id="cmp-title" placeholder="Selmer Bundy — upper stack pads" required>
+
+          <label for="cmp-horn">Horn</label>
+          <input type="text" id="cmp-horn" placeholder="Selmer Bundy" required>
+
+          <label for="cmp-desc">Description</label>
+          <textarea id="cmp-desc" required></textarea>
+
+          <label for="cmp-date">Date</label>
+          <input type="date" id="cmp-date" required>
+
+          <label for="cmp-before">Before photo path</label>
+          <input type="text" id="cmp-before" placeholder="images/comparisons/bundy-before.jpg">
+
+          <label for="cmp-after">After photo path</label>
+          <input type="text" id="cmp-after" placeholder="images/comparisons/bundy-after.jpg">
+
+          <button type="submit">Publish Comparison</button>
+        </form>
+        <div id="status-comparison"></div>
+      </div>
+
+      <!-- Photo upload form -->
+      <div class="admin-panel" id="panel-photo" hidden>
+        <form class="admin-form" id="form-photo">
+          <label for="photo-path">Destination path in repo</label>
+          <input type="text" id="photo-path" placeholder="images/workshop/my-photo.jpg" required>
+
+          <label>Photo file</label>
+          <div class="photo-upload-area" id="photo-drop">
+            Click to select or drag and drop a photo
+            <input type="file" id="photo-file" accept="image/*">
+          </div>
+          <div class="photo-preview" id="photo-preview"></div>
+
+          <button type="submit">Upload Photo</button>
+        </form>
+        <div id="status-photo"></div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 OhMySax</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
