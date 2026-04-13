@@ -12,13 +12,30 @@ Static site: vintage saxophone repair workshop log. Hosted on Sisyphus (Caddy re
 ## Structure
 
 ```
-index.html          Single-page site
+index.html          Main landing page
+workshop.html       Workshop log (chronological entries)
+comparisons.html    Before/after photo comparisons (side-by-side)
+admin.html          CMS admin — commits to GitHub API, no git push needed
+data/workshops.json Workshop entries (source of truth)
+data/comparisons.json Before/after comparisons (source of truth)
 css/style.css       Main styles
 css/fonts.css       @font-face declarations
 css/fonts/          Self-hosted woff2 files
 js/main.js          Mobile nav toggle
+js/workshop.js      Workshop page renderer (fetches JSON, renders client-side)
+js/comparisons.js   Comparisons page renderer
+js/admin.js         CMS logic (GitHub Contents API, photo upload, token in localStorage)
 images/             Photos + favicon.svg
 ```
+
+## CMS workflow
+
+1. Go to `/admin.html`
+2. Paste a GitHub PAT with `repo` scope (stored in browser localStorage only)
+3. Add workshop entries, before/after comparisons, or upload photos
+4. Each save commits to `main` via GitHub API, which triggers the Sisyphus deploy webhook automatically
+
+No git CLI needed. Token never leaves the browser except to `api.github.com`.
 
 ## Panel review status
 
