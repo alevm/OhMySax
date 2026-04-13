@@ -332,6 +332,39 @@ body {
   background: rgba(107, 107, 107, 0.06);
 }
 
+/* ---- Tools & Materials ---- */
+
+.tool-list {
+  margin-top: 1.5rem;
+}
+
+.tool-group {
+  padding: 0.8rem 0;
+  border-top: 1px dashed var(--rule);
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.tool-group:last-child {
+  border-bottom: 1px dashed var(--rule);
+}
+
+.tool-group dt {
+  flex-shrink: 0;
+  min-width: 8rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.tool-group dd {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
 /* ---- Why vintage ---- */
 
 .why-vintage .prose p:last-child {
@@ -404,6 +437,15 @@ body {
 
   .section {
     padding: 2.5rem 0 2rem;
+  }
+
+  .tool-group {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .tool-group dt {
+    min-width: unset;
   }
 }
 
