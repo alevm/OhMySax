@@ -16,8 +16,9 @@ index.html          Main landing page
 workshop.html       Workshop log (chronological entries)
 comparisons.html    Before/after photo comparisons (side-by-side)
 admin.html          CMS admin — commits to GitHub API, no git push needed
-data/workshops.json Workshop entries (source of truth)
-data/comparisons.json Before/after comparisons (source of truth)
+data/workshops.json Workshop entries (source of truth, entries have optional `steps` array for repair timelines)
+data/comparisons.json Before/after comparisons (source of truth, optional `audioBefore`/`audioAfter` fields)
+audio/              Audio files for before/after sound comparisons (.mp3/.wav)
 css/style.css       Main styles
 css/fonts.css       @font-face declarations
 css/fonts/          Self-hosted woff2 files
@@ -32,7 +33,7 @@ images/             Photos + favicon.svg
 
 1. Go to `/admin.html`
 2. Paste a GitHub PAT with `repo` scope (stored in browser localStorage only)
-3. Add workshop entries, before/after comparisons, or upload photos
+3. Add workshop entries (with optional multi-step repair timelines), before/after comparisons (with optional audio), or upload photos/audio
 4. Each save commits to `main` via GitHub API, which triggers the Sisyphus deploy webhook automatically
 
 No git CLI needed. Token never leaves the browser except to `api.github.com`.
@@ -55,6 +56,8 @@ See `PANEL_REVIEW_A_MINUS.md` for full gap analysis. Current grade: ~B+ (all cod
 - M2: schema.org structured data added
 - F4: Intro voice sharpened
 - Semantic `<main>` wrapper added
+- Repair timeline with photos (workshop entries support multi-step timelines with stage/date/description/photo)
+- Before/after audio comparison (synchronized Web Audio playback with Prima/Dopo toggle, CMS audio upload)
 
 ## Local dev
 
