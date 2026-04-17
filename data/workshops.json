@@ -5,26 +5,89 @@
     "title": "Yanagisawa A-50 — diagnosing the G# leak",
     "horn": "Yanagisawa A-50/500",
     "summary": "Used the LED leak light to confirm the G# cup pad isn't seating. Resonator visibly off-center on the low A pad. Both need replacing.",
-    "body": "First proper leak test session. Set up the LED light inside the bore and worked through the keys one by one in a dark room. The G# cluster lit up immediately — the pad cup is closing, but the pad itself has hardened and lost its impression of the tone hole rim. The low A was subtler: the resonator has shifted maybe 1mm off-center, just enough that one side of the pad lifts when the key closes.\n\nPlan: replace both pads with Pisoni Pro pads, reseat resonators with shellac. Ordered 2mm and 3mm cork sheet for the G# key height adjustment.",
-    "photos": [],
+    "body": "First proper leak test session. Set up the LED light inside the bore and worked through the keys one by one in a dark room. The G# cluster lit up immediately — the pad cup is closing, but the pad itself has hardened and lost its impression of the tone hole rim. The low A was subtler: the resonator has shifted maybe 1mm off-center, just enough that one side of the pad lifts when the key closes.\n\nPlan: replace both pads with Pisoni Pro pads, reseat resonators with shellac. Ordered 2mm and 3mm cork sheet for the G# key height adjustment.\n\nUpdate 2026-04-17: bench photos of the horn, the G# cluster, the bell engraving and mouthpiece for reference.",
+    "photos": [
+      "images/yani-full.jpg",
+      "images/yani-bell.jpg",
+      "images/yani-engraving.jpg",
+      "images/yani-mouthpiece.jpg"
+    ],
     "steps": [
       {
         "stage": "inspection",
         "date": "2026-04-10",
         "description": "LED leak light test in dark room. G# cluster lit up immediately — hardened pad lost its impression of the tone hole rim.",
-        "photo": ""
+        "photo": "images/yani-01.jpg"
       },
       {
         "stage": "diagnosis",
         "date": "2026-04-10",
         "description": "Low A resonator shifted ~1mm off-center, causing one side of the pad to lift on close. Both pads need replacing.",
-        "photo": ""
+        "photo": "images/yani-02.jpg"
       },
       {
         "stage": "planning",
         "date": "2026-04-10",
         "description": "Ordered Pisoni Pro pads, shellac for resonator reseating, 2mm and 3mm cork sheet for G# key height adjustment.",
-        "photo": ""
+        "photo": "images/yani-03.jpg"
+      },
+      {
+        "stage": "bench photos",
+        "date": "2026-04-17",
+        "description": "Full-length and close-up reference shots of the G# cluster, low-B/Bb guard, bell engraving and bow — baseline before pad work begins.",
+        "photo": "images/yani-04.jpg"
+      },
+      {
+        "stage": "lower stack reference",
+        "date": "2026-04-17",
+        "description": "Detail of the lower stack and bell bow. Used to map pad positions before ordering the final resonator set.",
+        "photo": "images/yani-05.jpg"
+      }
+    ]
+  },
+  {
+    "id": "2026-04-17-couesnon-post",
+    "date": "2026-04-17",
+    "title": "Couesnon Monopole Conservatoire II — detached post to solder",
+    "horn": "Couesnon Monopole Conservatoire II",
+    "summary": "A key post on the bell section has come loose from the body. Identified, cleaned the contact faces, ready to re-solder before moving on to tuning.",
+    "body": "Vintage French alto, bare/lacquered brass with the characteristic Couesnon pierced key guards and the trident-style bell brace. The horn came in with a post lifted clean off the body — one of the stack posts near the bell bow — so the connected rod can't hold its pivot and the whole cluster flops.\n\nToday's work: laid the horn out on the bench with the separated neck, matched the post to its footprint on the body, cleaned both surfaces back to bright brass with a fine scraper and isopropyl, and dry-fit to confirm alignment. Next bench session: tin both faces, soft-solder with a low-temp silver-bearing alloy (trying to avoid lifting neighbouring lacquer), then dress and polish.\n\nAfter the post is back on, the real work starts: full tuning pass — regulation, pad seating check on every cup, spring tensions, cork thicknesses. More entries to come.",
+    "photos": [
+      "images/couesnon-full.jpg",
+      "images/couesnon-bell.jpg",
+      "images/couesnon-neck-01.jpg",
+      "images/couesnon-mouthpiece.jpg"
+    ],
+    "steps": [
+      {
+        "stage": "intake",
+        "date": "2026-04-17",
+        "description": "Horn on the bench with neck and mouthpiece laid out. Trident bell brace and pierced guards intact — typical Monopole Conservatoire II detailing.",
+        "photo": "images/couesnon-full.jpg"
+      },
+      {
+        "stage": "neck & cork check",
+        "date": "2026-04-17",
+        "description": "Neck cork inspected — compressed but still serviceable for now. Will revisit after the post is resoldered and the horn is back together for a proper leak pass.",
+        "photo": "images/couesnon-neck-02.jpg"
+      },
+      {
+        "stage": "fault found",
+        "date": "2026-04-17",
+        "description": "Detached post located on the bell section. Dry-fit confirms the footprint matches — no bent rod, nothing sheared beyond the solder joint itself.",
+        "photo": "images/couesnon-post-01.jpg"
+      },
+      {
+        "stage": "contact prep",
+        "date": "2026-04-17",
+        "description": "Cleaned both mating faces back to bright brass. Next bench session: tin both surfaces and soft-solder with a low-temp silver-bearing alloy to avoid lifting the adjacent lacquer.",
+        "photo": "images/couesnon-post-02.jpg"
+      },
+      {
+        "stage": "next up",
+        "date": "2026-04-17",
+        "description": "After the post holds: full regulation and tuning pass — pad seating on every cup, spring tensions, cork thicknesses, intonation check up the horn. More entries to come.",
+        "photo": "images/couesnon-post-03.jpg"
       }
     ]
   }
