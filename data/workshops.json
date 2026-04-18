@@ -11,38 +11,6 @@
       "images/yani-bell.jpg",
       "images/yani-engraving.jpg",
       "images/yani-mouthpiece.jpg"
-    ],
-    "steps": [
-      {
-        "stage": "inspection",
-        "date": "2026-04-10",
-        "description": "LED leak light test in dark room. G# cluster lit up immediately — hardened pad lost its impression of the tone hole rim.",
-        "photo": "images/yani-01.jpg"
-      },
-      {
-        "stage": "diagnosis",
-        "date": "2026-04-10",
-        "description": "Low A resonator shifted ~1mm off-center, causing one side of the pad to lift on close. Both pads need replacing.",
-        "photo": "images/yani-02.jpg"
-      },
-      {
-        "stage": "planning",
-        "date": "2026-04-10",
-        "description": "Ordered Pisoni Pro pads, shellac for resonator reseating, 2mm and 3mm cork sheet for G# key height adjustment.",
-        "photo": "images/yani-03.jpg"
-      },
-      {
-        "stage": "bench photos",
-        "date": "2026-04-17",
-        "description": "Full-length and close-up reference shots of the G# cluster, low-B/Bb guard, bell engraving and bow — baseline before pad work begins.",
-        "photo": "images/yani-04.jpg"
-      },
-      {
-        "stage": "lower stack reference",
-        "date": "2026-04-17",
-        "description": "Detail of the lower stack and bell bow. Used to map pad positions before ordering the final resonator set.",
-        "photo": "images/yani-05.jpg"
-      }
     ]
   },
   {
@@ -57,38 +25,6 @@
       "images/couesnon-bell.jpg",
       "images/couesnon-neck-01.jpg",
       "images/couesnon-mouthpiece.jpg"
-    ],
-    "steps": [
-      {
-        "stage": "intake",
-        "date": "2026-04-17",
-        "description": "Horn on the bench with neck and mouthpiece laid out. Trident bell brace and pierced guards intact — typical Monopole Conservatoire II detailing.",
-        "photo": "images/couesnon-full.jpg"
-      },
-      {
-        "stage": "neck & cork check",
-        "date": "2026-04-17",
-        "description": "Neck cork inspected — compressed but still serviceable for now. Will revisit after the post is resoldered and the horn is back together for a proper leak pass.",
-        "photo": "images/couesnon-neck-02.jpg"
-      },
-      {
-        "stage": "fault found",
-        "date": "2026-04-17",
-        "description": "Detached post located on the bell section. Dry-fit confirms the footprint matches — no bent rod, nothing sheared beyond the solder joint itself.",
-        "photo": "images/couesnon-post-01.jpg"
-      },
-      {
-        "stage": "contact prep",
-        "date": "2026-04-17",
-        "description": "Cleaned both mating faces back to bright brass. Next bench session: tin both surfaces and soft-solder with a low-temp silver-bearing alloy to avoid lifting the adjacent lacquer.",
-        "photo": "images/couesnon-post-02.jpg"
-      },
-      {
-        "stage": "next up",
-        "date": "2026-04-17",
-        "description": "After the post holds: full regulation and tuning pass — pad seating on every cup, spring tensions, cork thicknesses, intonation check up the horn. More entries to come.",
-        "photo": "images/couesnon-post-03.jpg"
-      }
     ]
   }
 ]

@@ -46,6 +46,10 @@ body {
   padding: 0 1.5rem;
 }
 
+.container-wide {
+  max-width: 1100px;
+}
+
 /* ---- Navigation ---- */
 
 .site-header {
@@ -404,6 +408,27 @@ body {
 
 /* ---- Workshop log entries ---- */
 
+.workshop-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.workshop-column {
+  min-width: 0;
+}
+
+.workshop-column-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.35rem;
+  color: var(--patina);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--patina);
+  letter-spacing: 0.3px;
+}
+
 .workshop-entry {
   padding: 2rem 0;
   border-bottom: 1px dashed var(--rule);
@@ -427,13 +452,6 @@ body {
   font-size: 1.25rem;
   color: var(--ink);
   margin-bottom: 0.2rem;
-}
-
-.workshop-horn {
-  font-size: 0.8rem;
-  color: var(--ink-mute);
-  font-style: italic;
-  margin-bottom: 1rem;
 }
 
 .workshop-photos {
@@ -519,90 +537,6 @@ body {
   font-size: 0.85rem;
   color: var(--ink-mute);
   font-style: italic;
-}
-
-/* ---- Repair Timeline ---- */
-
-.timeline-section {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px dashed var(--rule);
-}
-
-.timeline-heading {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1rem;
-  color: var(--patina);
-  margin-bottom: 1rem;
-  letter-spacing: 0.3px;
-}
-
-.timeline {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  position: relative;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 7px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--rule);
-}
-
-.timeline-step {
-  position: relative;
-  padding-left: 2rem;
-  padding-bottom: 1.5rem;
-}
-
-.timeline-step:last-child {
-  padding-bottom: 0;
-}
-
-.timeline-marker {
-  position: absolute;
-  left: 0;
-  top: 4px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--paper);
-  border: 2px solid var(--patina);
-  z-index: 1;
-}
-
-.timeline-stage {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--patina);
-  font-weight: 700;
-  margin-bottom: 0.15rem;
-}
-
-.timeline-step-date {
-  font-size: 0.75rem;
-  color: var(--ink-mute);
-  margin-bottom: 0.3rem;
-}
-
-.timeline-desc {
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-  margin: 0;
-}
-
-.timeline-photo {
-  margin-top: 0.6rem;
-  max-width: 100%;
-  max-height: 300px;
-  border: 1px solid var(--rule);
-  object-fit: cover;
 }
 
 /* ---- Audio Comparison Player ---- */
@@ -786,6 +720,11 @@ body {
 
   .compare-pair {
     grid-template-columns: 1fr;
+  }
+
+  .workshop-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .workshop-photos img {

@@ -44,21 +44,6 @@
     .photo-upload-area input { display: none; }
     .photo-preview { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
     .photo-preview img { height: 80px; border: 1px solid var(--rule); }
-    .admin-add-step-btn {
-      margin-top: 0.5rem; padding: 0.4rem 1rem; font-family: inherit;
-      font-size: 0.85rem; font-weight: 600; color: var(--patina);
-      background: var(--paper); border: 1px solid var(--patina); border-radius: 2px; cursor: pointer;
-    }
-    .admin-add-step-btn:hover { background: var(--patina); color: var(--paper); }
-    .step-block {
-      border: 1px solid var(--rule); padding: 0.8rem; margin-top: 0.6rem;
-      background: var(--paper-soft); border-radius: 2px; position: relative;
-    }
-    .step-block label { margin-top: 0.5rem; }
-    .step-remove {
-      position: absolute; top: 0.4rem; right: 0.5rem; background: none;
-      border: none; color: var(--flag); cursor: pointer; font-size: 1rem; font-weight: 700;
-    }
   </style>
 </head>
 <body>
@@ -122,10 +107,6 @@
 
           <label for="ws-photos">Photo paths (comma-separated, e.g. images/photo1.jpg)</label>
           <input type="text" id="ws-photos" placeholder="images/workshop/my-photo.jpg">
-
-          <label>Repair Timeline Steps</label>
-          <div id="ws-steps-list"></div>
-          <button type="button" id="ws-add-step" class="admin-add-step-btn">+ Add Step</button>
 
           <button type="submit">Publish Workshop Entry</button>
         </form>

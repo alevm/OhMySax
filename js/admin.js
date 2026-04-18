@@ -74,53 +74,6 @@
     return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   }
 
-  // --- Workshop steps management ---
-  let stepCount = 0;
-  const stepsList = document.getElementById('ws-steps-list');
-
-  document.getElementById('ws-add-step').addEventListener('click', () => {
-    stepCount++;
-    const block = document.createElement('div');
-    block.className = 'step-block';
-    block.dataset.stepIdx = stepCount;
-    block.innerHTML = `
-      <button type="button" class="step-remove" title="Remove step">&times;</button>
-      <label>Stage</label>
-      <select class="step-stage">
-        <option value="inspection">Inspection</option>
-        <option value="disassembly">Disassembly</option>
-        <option value="diagnosis">Diagnosis</option>
-        <option value="repair">Repair</option>
-        <option value="reassembly">Reassembly</option>
-        <option value="testing">Testing</option>
-        <option value="planning">Planning</option>
-        <option value="complete">Complete</option>
-      </select>
-      <label>Date</label>
-      <input type="date" class="step-date">
-      <label>Description</label>
-      <textarea class="step-desc" rows="2"></textarea>
-      <label>Photo path (optional)</label>
-      <input type="text" class="step-photo" placeholder="images/workshop/step-photo.jpg">
-    `;
-    block.querySelector('.step-remove').addEventListener('click', () => block.remove());
-    stepsList.appendChild(block);
-  });
-
-  function collectSteps() {
-    const steps = [];
-    stepsList.querySelectorAll('.step-block').forEach(block => {
-      const stage = block.querySelector('.step-stage').value;
-      const date = block.querySelector('.step-date').value;
-      const description = block.querySelector('.step-desc').value.trim();
-      const photo = block.querySelector('.step-photo').value.trim();
-      if (description) {
-        steps.push({ stage, date, description, photo });
-      }
-    });
-    return steps;
-  }
-
   // --- Workshop entry ---
   document.getElementById('form-workshop').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -133,8 +86,7 @@
       horn: document.getElementById('ws-horn').value,
       summary: document.getElementById('ws-summary').value,
       body: document.getElementById('ws-body').value,
-      photos: document.getElementById('ws-photos').value.split(',').map(s => s.trim()).filter(Boolean),
-      steps: collectSteps()
+      photos: document.getElementById('ws-photos').value.split(',').map(s => s.trim()).filter(Boolean)
     };
 
     try {
@@ -146,8 +98,6 @@
       await ghPut('data/workshops.json', content, `Add workshop entry: ${entry.title}`, file.sha);
       showStatus('status-workshop', 'Published! Deploy will trigger automatically.', true);
       e.target.reset();
-      stepsList.innerHTML = '';
-      stepCount = 0;
     } catch (err) {
       showStatus('status-workshop', err.message, false);
     }
